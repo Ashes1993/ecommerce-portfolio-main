@@ -1,0 +1,404 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.page-container {
+  overflow: hidden;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  width: 100%;
+}
+
+.navbar-header {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 2rem;
+  align-self: flex-start;
+}
+
+.shoping-cart {
+  display: flex;
+  margin: 1rem auto;
+  font-size: 25px;
+  margin-right: 2rem;
+  gap: 1rem;
+  background-color: aliceblue;
+  border-radius: 12px;
+  text-align: center;
+  padding: 1rem;
+}
+
+.cart-icon {
+  color: rgb(85, 85, 199);
+  font-size: 30px;
+  margin: auto;
+}
+
+.product-counter {
+  margin: auto;
+}
+
+/* Shoping Cart */
+
+.cart-container {
+  display: none;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 70%;
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: aliceblue;
+  border-radius: 6px;
+  z-index: 1;
+}
+
+.show-cart {
+  display: grid;
+  grid-template-columns: auto;
+}
+
+.no-item {
+  margin: auto;
+}
+
+.cart-item {
+  display: flex;
+  width: 90%;
+  margin: auto;
+  margin-bottom: 1rem;
+  gap: 1rem;
+  border-radius: 6px;
+  background-color: rgb(255, 255, 255);
+  text-align: center;
+}
+
+.cart-item:hover {
+  transform: scale(1.05);
+  transition: transform 200ms;
+}
+
+.cart-item h3 {
+  margin: auto;
+  font-size: 15px;
+  float: left;
+}
+
+.cart-item p {
+  margin: auto;
+}
+
+.cart-item-image {
+  margin: 0.5rem;
+  width: 5rem;
+  border-radius: 8px;
+}
+
+.cart-item input {
+  width: 10%;
+  border: none;
+  margin: 0 auto;
+}
+
+.remove-btn {
+  font-size: 25px;
+  background-color: rgb(255, 255, 255);
+  margin: auto;
+  border: none;
+  padding: 0.3rem;
+  border-radius: 6px;
+}
+
+.delete-icon {
+  margin: auto;
+}
+
+.price-container {
+  margin: auto;
+  width: 90%;
+}
+
+.total-price {
+  float: right;
+  color: #070707;
+}
+
+/* Slider */
+
+.slider-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.slider-section {
+  gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 300%;
+  transform: translateX(0);
+}
+
+.image-item {
+  opacity: 0;
+  object-fit: cover;
+  width: 100%;
+  transition: transform 0.4s linear;
+}
+
+.image-item.activeSlide {
+  grid-column-start: 1;
+  grid-row-start: 1;
+  opacity: 1;
+  transform: translateX(0);
+}
+.image-item.lastSlide {
+  transform: translateX(-100%);
+}
+.image-item.nextSlide {
+  transform: translateX(100%);
+}
+
+.img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.slide-identifier-container {
+  display: flex;
+  justify-content: center;
+}
+.slide-identifier {
+  width: 1rem;
+  background-color: rgba(116, 116, 116, 0.555);
+  height: 1rem;
+  border-radius: 50%;
+  margin: 1rem;
+}
+
+.active-identifier {
+  background-color: black;
+}
+
+/* Products & Tools Container */
+
+.products-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: max-content auto;
+  margin-left: 3rem;
+  margin-right: 3rem;
+}
+
+/* Search Bar */
+.search-container {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.search-input {
+  font-size: 16px;
+  padding: 0.5rem;
+  border: 1px solid rgba(170, 170, 170, 0.562);
+  border-radius: 6px;
+  max-height: 1rem;
+}
+
+/* Filter */
+
+.filter-container {
+  grid-row: 1/3;
+  margin-left: 1rem;
+  margin-right: 2rem;
+}
+
+.filter-dropdown {
+  margin: auto;
+}
+
+.filter-dropdown:hover {
+  cursor: pointer;
+}
+
+.brand-list {
+  list-style: none;
+  cursor: pointer;
+}
+
+.brand-list li {
+  padding: 0.3rem;
+  background-color: white;
+  border: none;
+}
+.brand-list li:hover {
+  background-color: aliceblue;
+}
+
+.brand-list button {
+  font-size: 1rem;
+  padding: 0.3rem;
+  background-color: aliceblue;
+  border: none;
+}
+
+.price-range {
+  display: grid;
+  grid-template-columns: auto;
+}
+
+.price-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.price-form input {
+  margin: 0.5rem;
+  border: 1px solid rgba(170, 170, 170, 0.562);
+  border-radius: 6px;
+  box-shadow: 3px 3px 10px black;
+}
+
+.price-form button {
+  width: 50%;
+  margin: auto;
+}
+
+/* Product List */
+.products-items {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 1rem;
+  margin-top: 2rem;
+  width: 90%;
+  min-width: 85%;
+  text-align: center;
+  overflow: hidden;
+}
+
+.laptop-item {
+  background-color: rgb(255, 255, 255);
+  padding: 1rem;
+  border: 1px solid rgba(170, 170, 170, 0.562);
+  border-radius: 6px;
+  width: 70%;
+}
+
+.laptop-item:hover {
+  background-color: aliceblue;
+  transform: scale(1.08);
+  transition: transform 300ms;
+}
+
+.laptop-details {
+  display: grid;
+  grid-template-rows: auto auto auto auto;
+  text-align: left;
+  padding: 1rem;
+}
+
+.laptop-photo {
+  width: 80%;
+  overflow: hidden;
+  margin: auto;
+}
+
+.laptop-brand {
+  padding: 0.5rem;
+}
+
+.laptop-model {
+  padding: 0.5rem;
+}
+
+.laptop-price {
+  padding: 0.5rem;
+}
+
+.add-cart {
+  width: 100%;
+  background-color: rgb(38, 153, 38);
+  color: white;
+  border-radius: 6px;
+  border: none;
+  padding: 0.5rem;
+}
+
+.no-product h3 {
+  width: 100%;
+  margin: 0;
+  padding: 3rem;
+}
+
+/* Mobile Screen */
+@media only screen and (max-width: 780px) {
+  .shoping-cart {
+    padding: 0.5rem;
+  }
+  .cart-container {
+    width: 100%;
+    margin: auto;
+  }
+  .cart-item {
+    margin: 0 auto;
+  }
+  .cart-item p {
+    display: none;
+  }
+  .img {
+    height: 150px;
+  }
+  .products-items {
+    grid-template-columns: auto;
+  }
+
+  .products-container {
+    grid-template-columns: auto;
+  }
+
+  .filter-container {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .price-form input {
+    width: 50%;
+  }
+
+  .price-form button {
+    margin: 0.5rem;
+    width: fit-content;
+  }
+  .search-input {
+    font-size: 10px;
+  }
+  .no-product h3 {
+    font-size: 16px;
+    padding: 0;
+    margin-bottom: 2rem;
+  }
+}
+
+/* Scroll to Top Button */
+.scroll-to-top {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #000;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.scroll-to-top.visible {
+  display: block;
+  opacity: 1;
+}
