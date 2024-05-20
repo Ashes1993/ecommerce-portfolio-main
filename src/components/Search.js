@@ -1,37 +1,37 @@
-import React, { useState, useRef, useEffect } from 'react'
-import { useGlobalContext } from '../context'
-import { productList } from '../data'
+import React, { useState, useEffect } from "react";
+import { useGlobalContext } from "../context";
+import { productList } from "../data";
 
 export const Search = () => {
-  const { setProducts, setProductError } = useGlobalContext()
-  const [inputValue, setInputValue] = useState('')
+  const { setProducts, setProductError } = useGlobalContext();
+  const [inputValue, setInputValue] = useState("");
 
   useEffect(() => {
     if (inputValue) {
       const newProducts = productList.filter((product) =>
         product.brand.toLowerCase().includes(inputValue.toLowerCase())
-      )
-      setProducts(newProducts)
-      if (newProducts.length === 0 && inputValue !== '') {
-        setProductError(true)
+      );
+      setProducts(newProducts);
+      if (newProducts.length === 0 && inputValue !== "") {
+        setProductError(true);
       } else {
-        setProductError(false)
+        setProductError(false);
       }
     } else {
-      setProductError(false)
-      setProducts(productList)
+      setProductError(false);
+      setProducts(productList);
     }
-  }, [inputValue])
+  }, [inputValue, setProducts, setProductError]);
 
   return (
-    <div className='search-container'>
+    <div className="search-container">
       <input
-        placeholder='Search by Brand Name'
-        className='search-input'
-        type='text'
+        placeholder="Search by Brand Name"
+        className="search-input"
+        type="text"
         value={inputValue}
         onChange={(event) => setInputValue(event.target.value)}
       />
     </div>
-  )
-}
+  );
+};
