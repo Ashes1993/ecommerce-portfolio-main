@@ -20,9 +20,33 @@ body {
   align-self: flex-start;
 }
 
+.logo-image {
+  width: 100px;
+}
+
+.navbar-buttons {
+  display: flex;
+  list-style: none;
+  margin: auto;
+  margin-right: 1rem;
+  scroll-behavior: smooth;
+}
+
+.navbar-buttons a {
+  scroll-behavior: smooth;
+  text-decoration: none;
+  color: #070707;
+  padding: 1rem;
+  transition: border-bottom ease-out 0.1s;
+}
+
+.navbar-buttons a:hover {
+  border-bottom: 4px solid rgb(21, 111, 247);
+}
+
 .shoping-cart {
   display: flex;
-  margin: 1rem auto;
+  margin: 1rem;
   font-size: 25px;
   margin-right: 2rem;
   gap: 1rem;
