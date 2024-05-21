@@ -151,6 +151,25 @@ body {
   color: #070707;
 }
 
+/* Top Banner */
+
+.banner-container {
+  position: relative;
+}
+
+.laptop-banner {
+  width: 100%;
+}
+
+.banner-text {
+  position: absolute;
+  bottom: 30px;
+  left: 50px;
+  font-size: 50px;
+  font-family: sans-serif;
+  color: rgb(255, 255, 255);
+}
+
 /* Slider */
 
 .slider-container {
