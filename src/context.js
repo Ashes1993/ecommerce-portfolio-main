@@ -1,13 +1,14 @@
-import React, { useState, useContext } from 'react'
-import { productList } from './data'
+import React, { useState, useContext } from "react";
+import { productList } from "./data";
 
-const AppContext = React.createContext()
+const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
-  const [products, setProducts] = useState(productList)
-  const [productError, setProductError] = useState(false)
-  const [shopingCart, setShopingCart] = useState([])
-  const [isCartOpen, setIsCartOpen] = useState(false)
+  const [products, setProducts] = useState(productList);
+  const [productError, setProductError] = useState(false);
+  const [shopingCart, setShopingCart] = useState([]);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isBurgerMenu, setIsBurgerMenu] = useState(false);
   return (
     <AppContext.Provider
       value={{
@@ -19,15 +20,17 @@ const AppProvider = ({ children }) => {
         setShopingCart,
         isCartOpen,
         setIsCartOpen,
+        isBurgerMenu,
+        setIsBurgerMenu,
       }}
     >
       {children}
     </AppContext.Provider>
-  )
-}
+  );
+};
 
 export const useGlobalContext = () => {
-  return useContext(AppContext)
-}
+  return useContext(AppContext);
+};
 
-export { AppContext, AppProvider }
+export { AppContext, AppProvider };
