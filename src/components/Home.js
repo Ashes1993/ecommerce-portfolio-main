@@ -3,7 +3,7 @@ import Navbar from "./Navbar";
 import { ProductItems } from "./ProductItems";
 import { Search } from "./Search";
 import { Filter } from "./Filter";
-import ShopingCart from "./ShopingCart";
+import ShoppingCart from "./ShoppingCart";
 import Banner from "./Banner";
 import About from "./About";
 import Carousel from "./Carousel";
@@ -12,7 +12,7 @@ const Home = () => {
   return (
     <div className="page-container">
       <Navbar />
-      <ShopingCart />
+      <ShoppingCart />
       <Carousel />
       <About />
       {/* <Banner /> */}

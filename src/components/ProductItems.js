@@ -5,30 +5,19 @@ import { Element } from "react-scroll";
 
 const ProductCard = ({ id, brand, model, price, imgUrl }) => {
   const [isAdded, setIsAdded] = useState(false);
-  const { shopingCart, setShopingCart } = useGlobalContext();
+  const { shoppingCart, setShoppingCart } = useGlobalContext();
 
   const addCart = (id) => {
     const newItem = productList.filter((product) => id === product.id);
-    const isProductDuplicate = shopingCart.some((item) => item.id === id);
+    const isProductDuplicate = shoppingCart.some((item) => item.id === id);
 
     if (!isProductDuplicate) {
       newItem[0].amount = 1;
-      let newShopingCart = [...shopingCart, ...newItem];
-      setShopingCart(newShopingCart);
+      let newShoppingCart = [...shoppingCart, ...newItem];
+      setShoppingCart(newShoppingCart);
     } else {
       newItem[0].amount = newItem[0].amount + 1;
-      console.log(shopingCart);
-      // const indexToReplace = shopingCart.findIndex(
-      //   (item) => item.id === newItem.id
-      // );
-      // console.log(indexToReplace);
-      // if (indexToReplace !== -1) {
-      //   let newShopingCart = shopingCart.splice(indexToReplace, 1, newItem);
-      //   setShopingCart(newShopingCart);
-      //   console.log("item is duplicated!");
-      // } else {
-      //   console.log("Object not found in the list");
-      // }
+      console.log(shoppingCart);
     }
 
     setIsAdded(true);

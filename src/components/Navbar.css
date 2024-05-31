@@ -1,0 +1,121 @@
+.navbar {
+  display: flex;
+  width: 100%;
+}
+
+.navbar-header {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 2rem;
+  align-self: flex-start;
+}
+
+.logo-image {
+  width: 100px;
+}
+
+.navbar-buttons {
+  display: flex;
+  list-style: none;
+  margin: auto;
+  margin-right: 1rem;
+  scroll-behavior: smooth;
+}
+
+.navbar-buttons a {
+  scroll-behavior: smooth;
+  text-decoration: none;
+  font-weight: 900;
+  color: #070707;
+  background-color: white;
+  padding: 1rem;
+  transition: border-bottom 0.2s linear, transform 0.2s ease-in;
+  cursor: pointer;
+}
+
+.navbar-buttons a:hover {
+  border-bottom: 3px solid rgb(0, 0, 0);
+  transform: scale(1.1);
+}
+
+.burger-btn {
+  display: none;
+  border: none;
+  background-color: white;
+  font-size: 3rem;
+}
+
+.shopping-cart {
+  display: flex;
+  margin: 1rem;
+  font-size: 25px;
+  margin-right: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.5s ease-in-out;
+}
+
+.shopping-cart:hover {
+  transform: scale(1.1);
+}
+
+.cart-icon {
+  color: rgb(0, 0, 0);
+  font-size: 25px;
+  margin: auto;
+}
+
+.product-counter {
+  font-size: 15px;
+  margin-top: 0.5rem;
+}
+
+@media screen and (max-width: 618px) {
+  .navbar {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .navbar-buttons {
+    background-color: aliceblue;
+    width: 100%;
+    height: 60vh;
+    padding: 3rem 0;
+    gap: 2rem;
+    flex-direction: column;
+    position: absolute;
+    left: -120%;
+    top: 1.2%;
+    z-index: 1;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    transition: left 0.5s ease-in;
+  }
+
+  .navbar-buttons.show {
+    display: flex;
+    left: 0;
+  }
+
+  .navbar-buttons a {
+    color: rgb(0, 0, 0);
+    font-size: 25px;
+    margin-left: 3rem;
+  }
+
+  .burger-btn {
+    display: block;
+    order: 1;
+    margin-right: auto;
+    margin-left: 1rem;
+  }
+  .navbar-header {
+    order: 2;
+    margin: auto;
+  }
+  .shopping-cart {
+    order: 3;
+    margin-left: auto;
+    margin-right: 0;
+  }
+}

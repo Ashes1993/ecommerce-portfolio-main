@@ -1,13 +1,14 @@
 import React from "react";
-import { FaCartArrowDown } from "react-icons/fa";
+import { PiShoppingCart } from "react-icons/pi";
 import { useGlobalContext } from "../context";
 import laptopLogo from "../images/laptop-logo.jpg";
 import { Link } from "react-scroll";
 import { RxHamburgerMenu } from "react-icons/rx";
+import "./Navbar.css";
 
 const Navbar = () => {
   const {
-    shopingCart,
+    shoppingCart,
     isCartOpen,
     setIsCartOpen,
     setIsBurgerMenu,
@@ -39,9 +40,9 @@ const Navbar = () => {
       >
         <RxHamburgerMenu />
       </button>
-      <div className="shoping-cart" onClick={() => setIsCartOpen(!isCartOpen)}>
-        <FaCartArrowDown className="cart-icon" />
-        <span className="product-counter">{shopingCart.length}</span>
+      <div className="shopping-cart" onClick={() => setIsCartOpen(!isCartOpen)}>
+        <PiShoppingCart className="cart-icon" />
+        <span className="product-counter">{shoppingCart.length}</span>
       </div>
     </header>
   );

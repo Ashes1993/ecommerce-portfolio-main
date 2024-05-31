@@ -1,0 +1,28 @@
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.scroll-to-top.visible {
+  animation-name: scrollAnimation;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in;
+}
+
+@keyframes scrollAnimation {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,33 @@
+.banner-container {
+  position: relative;
+}
+
+.laptop-banner {
+  width: 100%;
+}
+
+.banner-text-container {
+  position: absolute;
+  width: 20%;
+  top: 50px;
+  left: 80px;
+}
+
+.banner-text {
+  margin: 1rem 0;
+  font-size: 80px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  background-image: linear-gradient(45deg, #f378f3, #f3a034);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.banner-shop-btn {
+  color: rgb(0, 0, 0);
+  padding: 1rem;
+  background-color: #fa55fa;
+  border-radius: 3rem;
+  cursor: pointer;
+}

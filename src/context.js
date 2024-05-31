@@ -6,7 +6,7 @@ const AppContext = React.createContext();
 const AppProvider = ({ children }) => {
   const [products, setProducts] = useState(productList);
   const [productError, setProductError] = useState(false);
-  const [shopingCart, setShopingCart] = useState([]);
+  const [shoppingCart, setShoppingCart] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isBurgerMenu, setIsBurgerMenu] = useState(false);
   return (
@@ -16,8 +16,8 @@ const AppProvider = ({ children }) => {
         setProducts,
         productError,
         setProductError,
-        shopingCart,
-        setShopingCart,
+        shoppingCart,
+        setShoppingCart,
         isCartOpen,
         setIsCartOpen,
         isBurgerMenu,

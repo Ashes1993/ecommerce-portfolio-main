@@ -1,6 +1,7 @@
 import React from "react";
 import laptopBanner from "../images/laptop-banner.jpg";
 import { Link } from "react-scroll";
+import "./Banner.css";
 
 const Banner = () => {
   return (
