@@ -7,6 +7,7 @@ import ShoppingCart from "./ShoppingCart";
 import Banner from "./Banner";
 import About from "./About";
 import Carousel from "./Carousel";
+import Footer from "./Footer";
 
 const Home = () => {
   return (
@@ -15,12 +16,13 @@ const Home = () => {
       <ShoppingCart />
       <Carousel />
       <About />
-      {/* <Banner /> */}
+      <Banner />
       <div className="products-container">
         <Filter />
         <Search />
         <ProductItems />
       </div>
+      <Footer />
     </div>
   );
 };

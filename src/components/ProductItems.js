@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useGlobalContext } from "../context";
 import { productList } from "../data";
 import { Element } from "react-scroll";
+import "./ProductItems.css";
 
 const ProductCard = ({ id, brand, model, price, imgUrl }) => {
   const [isAdded, setIsAdded] = useState(false);
@@ -16,8 +17,15 @@ const ProductCard = ({ id, brand, model, price, imgUrl }) => {
       let newShoppingCart = [...shoppingCart, ...newItem];
       setShoppingCart(newShoppingCart);
     } else {
-      newItem[0].amount = newItem[0].amount + 1;
-      console.log(shoppingCart);
+      const existingProduct = shoppingCart.find((item) => item.id === id);
+
+      setShoppingCart((prevCart) =>
+        prevCart.map((item) =>
+          item.id === id
+            ? { ...existingProduct, amount: existingProduct.amount + 1 }
+            : item
+        )
+      );
     }
 
     setIsAdded(true);

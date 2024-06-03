@@ -1,0 +1,57 @@
+/* Filter */
+
+.filter-container {
+  grid-row: 1/3;
+  border-right: 1px solid rgb(185, 185, 185);
+}
+
+.filter-dropdown {
+  margin: auto;
+}
+
+.filter-dropdown:hover {
+  cursor: pointer;
+}
+
+.brand-list {
+  list-style: none;
+  cursor: pointer;
+}
+
+.brand-list li {
+  padding: 0.3rem;
+  background-color: white;
+  border: none;
+}
+.brand-list li:hover {
+  background-color: aliceblue;
+}
+
+.brand-list button {
+  font-size: 1rem;
+  padding: 0.3rem;
+  background-color: aliceblue;
+  border: none;
+}
+
+.price-range {
+  display: grid;
+  grid-template-columns: auto;
+}
+
+.price-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.price-form input {
+  margin: 0.5rem;
+  border: 1px solid rgba(170, 170, 170, 0.562);
+  border-radius: 6px;
+  box-shadow: 3px 3px 10px black;
+}
+
+.price-form button {
+  width: 50%;
+  margin: auto;
+}

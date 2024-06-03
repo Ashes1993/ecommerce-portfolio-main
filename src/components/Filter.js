@@ -1,82 +1,83 @@
-import React, { useState } from 'react'
-import { useGlobalContext } from '../context'
-import { productList } from '../data'
-import { AiOutlineArrowDown } from 'react-icons/ai'
+import React, { useState } from "react";
+import { useGlobalContext } from "../context";
+import { productList } from "../data";
+import { AiOutlineArrowDown } from "react-icons/ai";
+import "./Filter.css";
 
 export const Filter = () => {
-  const { products, setProducts } = useGlobalContext()
-  const [fromPrice, setFromPrice] = useState(0)
-  const [toPrice, setToPrice] = useState(0)
-  const [isBrandOpen, setIsBrandOpen] = useState(false)
+  const { products, setProducts } = useGlobalContext();
+  const [fromPrice, setFromPrice] = useState(0);
+  const [toPrice, setToPrice] = useState(0);
+  const [isBrandOpen, setIsBrandOpen] = useState(false);
 
   const filterBrand = (selectedBrand) => {
     const newList = productList.filter(
       (product) => product.brand === selectedBrand
-    )
-    setProducts(newList)
-  }
+    );
+    setProducts(newList);
+  };
 
   const priceFilter = (from, to) => {
     const newList = products.filter(
       (item) => item.price >= from && item.price <= to
-    )
-    setProducts(newList)
-  }
+    );
+    setProducts(newList);
+  };
 
   const formHandler = (event) => {
-    event.preventDefault()
-    priceFilter(fromPrice, toPrice)
-  }
+    event.preventDefault();
+    priceFilter(fromPrice, toPrice);
+  };
 
   return (
-    <div className='filter-container'>
-      <h3>Categories</h3>
+    <aside className="filter-container">
+      <h3>Filters</h3>
       <div>
         <h4
           onClick={() => setIsBrandOpen(!isBrandOpen)}
-          className='filter-dropdown'
+          className="filter-dropdown"
         >
-          Laptop
-          <AiOutlineArrowDown className='arrow-down-icon' />
+          Brands
+          <AiOutlineArrowDown className="arrow-down-icon" />
         </h4>
         {isBrandOpen && (
-          <ul className='brand-list'>
+          <ul className="brand-list">
             <li>
-              <button onClick={() => filterBrand('Acer')}>Acer</button>
+              <button onClick={() => filterBrand("Acer")}>Acer</button>
             </li>
             <li>
-              <button onClick={() => filterBrand('Asus')}>Asus</button>
+              <button onClick={() => filterBrand("Asus")}>Asus</button>
             </li>
             <li>
-              <button onClick={() => filterBrand('HP')}>HP</button>
+              <button onClick={() => filterBrand("HP")}>HP</button>
             </li>
             <li>
-              <button onClick={() => filterBrand('Jumper')}>Jumper</button>
+              <button onClick={() => filterBrand("Jumper")}>Jumper</button>
             </li>
             <li>
-              <button onClick={() => filterBrand('Lenovo')}>Lenovo</button>
+              <button onClick={() => filterBrand("Lenovo")}>Lenovo</button>
             </li>
           </ul>
         )}
       </div>
-      <div className='price-range'>
-        <h4>Price</h4>
-        <form className='price-form' onSubmit={formHandler}>
+      <div className="price-range">
+        <h4>Price Range</h4>
+        <form className="price-form" onSubmit={formHandler}>
           <input
-            type='number'
-            placeholder='from'
+            type="number"
+            placeholder="from"
             value={fromPrice}
             onChange={(event) => setFromPrice(event.target.value)}
           />
           <input
-            type='number'
-            placeholder='to'
+            type="number"
+            placeholder="to"
             value={toPrice}
             onChange={(event) => setToPrice(event.target.value)}
           />
-          <button type='submit'>Submit</button>
+          <button type="submit">Submit</button>
         </form>
       </div>
-    </div>
-  )
-}
+    </aside>
+  );
+};

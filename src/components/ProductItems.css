@@ -1,0 +1,74 @@
+.products-items {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 1rem;
+  margin-top: 2rem;
+  padding: 2rem;
+  width: 90%;
+  min-width: 85%;
+  text-align: center;
+  overflow: hidden;
+}
+
+.laptop-item {
+  background-color: rgb(255, 255, 255);
+  padding: 1rem;
+  border: 1px solid rgba(170, 170, 170, 0.562);
+  border-radius: 6px;
+  width: 70%;
+  position: relative;
+}
+
+.laptop-item:hover {
+  background-color: aliceblue;
+  transform: scale(1.08);
+  transition: transform 300ms;
+}
+
+.laptop-details {
+  display: grid;
+  grid-template-rows: auto auto auto auto;
+  text-align: left;
+  padding: 1rem;
+}
+
+.laptop-photo {
+  width: 80%;
+  overflow: hidden;
+  margin: auto;
+}
+
+.laptop-brand {
+  padding: 0.5rem;
+}
+
+.laptop-model {
+  padding: 0.5rem;
+}
+
+.laptop-price {
+  padding: 0.5rem;
+}
+
+.add-cart {
+  width: 50%;
+  background-color: rgb(38, 153, 38);
+  color: white;
+  border-radius: 6px;
+  border: none;
+  position: absolute;
+  padding: 0.5rem;
+  justify-self: center;
+  bottom: 1rem;
+  cursor: pointer;
+}
+
+.add-cart-success {
+  color: green;
+}
+
+.no-product h3 {
+  width: 100%;
+  margin: 0;
+  padding: 3rem;
+}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useGlobalContext } from "../context";
 import { productList } from "../data";
+import "./Search.css";
 
 export const Search = () => {
   const { setProducts, setProductError } = useGlobalContext();

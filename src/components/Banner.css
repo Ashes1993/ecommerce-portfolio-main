@@ -31,3 +31,18 @@
   border-radius: 3rem;
   cursor: pointer;
 }
+
+@media screen and (max-width: 1200px) {
+  .banner-text-container {
+    width: 40%;
+  }
+  .banner-text {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .laptop-banner {
+    min-height: 250px;
+  }
+}

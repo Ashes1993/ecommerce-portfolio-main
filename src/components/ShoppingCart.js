@@ -11,17 +11,30 @@ const ShoppingCart = () => {
   const [totalPrice, setTotalPrice] = useState(0);
 
   const removeItem = (id) => {
-    const newList = shoppingCart.filter((item) => item.id !== id);
-    setShoppingCart(newList);
+    const productIndex = shoppingCart.findIndex((item) => item.id === id);
+
+    if (productIndex !== -1) {
+      const updatedCart = shoppingCart.map((item, index) => {
+        if (index === productIndex) {
+          return item.amount > 1 ? { ...item, amount: item.amount - 1 } : null;
+        }
+        return item;
+      });
+
+      // Filter out any null values (removed items)
+      const filteredCart = updatedCart.filter((item) => item !== null);
+      setShoppingCart(filteredCart);
+    }
   };
 
   useEffect(() => {
     let total = 0;
     shoppingCart.forEach((item) => {
-      total += parseInt(item.price);
+      total += item.amount * item.price;
     });
     setTotalPrice(total);
   }, [shoppingCart]);
+
   return (
     <div className={`cart-container ${isCartOpen ? "show-cart" : ""}`}>
       <div className="cart-header">

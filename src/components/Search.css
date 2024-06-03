@@ -1,0 +1,15 @@
+/* Search Bar */
+.search-container {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.search-input {
+  font-size: 16px;
+  padding: 0.5rem;
+  border: 1px solid rgba(170, 170, 170, 0.562);
+  border-radius: 6px;
+  max-height: 1rem;
+}
