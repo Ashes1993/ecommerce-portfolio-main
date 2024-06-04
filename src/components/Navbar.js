@@ -5,6 +5,8 @@ import laptopLogo from "../images/laptop-logo.jpg";
 import { Link } from "react-scroll";
 import { RxHamburgerMenu } from "react-icons/rx";
 import "./Navbar.css";
+import { IoMdClose } from "react-icons/io";
+import mobileMenuImage from "../images/mobile-menu-image.jpg";
 
 const Navbar = () => {
   const {
@@ -20,6 +22,11 @@ const Navbar = () => {
         <img className="logo-image" src={laptopLogo} alt="laptop logo" />
       </a>
       <ul className={`navbar-buttons ${isBurgerMenu && "show"}`}>
+        {isBurgerMenu && (
+          <button onClick={() => setIsBurgerMenu(false)} className="close-btn">
+            <IoMdClose />
+          </button>
+        )}
         <li>
           <a href="/">Home</a>
         </li>
@@ -33,7 +40,11 @@ const Navbar = () => {
             Contact Us
           </Link>
         </li>
+        {isBurgerMenu && (
+          <img className="menu-laptop" src={mobileMenuImage} alt="laptops" />
+        )}
       </ul>
+
       <button
         onClick={() => setIsBurgerMenu(!isBurgerMenu)}
         className="burger-btn"
