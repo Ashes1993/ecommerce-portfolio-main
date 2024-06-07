@@ -1,13 +1,12 @@
 .products-items {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  grid-gap: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
   margin-top: 2rem;
   padding: 2rem;
-  width: 90%;
-  min-width: 85%;
+  /* width: 90%;
+  min-width: 85%; */
   text-align: center;
-  overflow: hidden;
 }
 
 .laptop-item {
@@ -15,12 +14,13 @@
   padding: 1rem;
   border: 1px solid rgba(170, 170, 170, 0.562);
   border-radius: 6px;
-  width: 70%;
+  width: 30%;
+  min-width: 250px;
+  max-width: 350px;
   position: relative;
 }
 
 .laptop-item:hover {
-  background-color: aliceblue;
   transform: scale(1.08);
   transition: transform 300ms;
 }
@@ -63,8 +63,9 @@
   cursor: pointer;
 }
 
-.add-cart-success {
+.add-cart.added {
   color: green;
+  background-color: rgb(221, 221, 221);
 }
 
 .no-product h3 {

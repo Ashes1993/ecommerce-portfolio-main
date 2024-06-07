@@ -3,11 +3,11 @@ import { useGlobalContext } from "../context";
 import { productList } from "../data";
 import { AiOutlineArrowDown } from "react-icons/ai";
 import "./Filter.css";
+import ReactSlider from "react-slider";
 
 export const Filter = () => {
-  const { products, setProducts } = useGlobalContext();
-  const [fromPrice, setFromPrice] = useState(0);
-  const [toPrice, setToPrice] = useState(0);
+  const { setProducts } = useGlobalContext();
+  const [priceRange, setPriceRange] = useState([]);
   const [isBrandOpen, setIsBrandOpen] = useState(false);
 
   const filterBrand = (selectedBrand) => {
@@ -17,17 +17,17 @@ export const Filter = () => {
     setProducts(newList);
   };
 
-  const priceFilter = (from, to) => {
-    const newList = products.filter(
-      (item) => item.price >= from && item.price <= to
-    );
-    setProducts(newList);
-  };
+  // const priceFilterHandler = (from, to) => {
+  //   const newList = products.filter(
+  //     (item) => item.price >= from && item.price <= to
+  //   );
+  //   setProducts(newList);
+  // };
 
-  const formHandler = (event) => {
-    event.preventDefault();
-    priceFilter(fromPrice, toPrice);
-  };
+  // const formHandler = (event) => {
+  //   event.preventDefault();
+  //   priceFilter(fromPrice, toPrice);
+  // };
 
   return (
     <aside className="filter-container">
@@ -60,23 +60,31 @@ export const Filter = () => {
           </ul>
         )}
       </div>
-      <div className="price-range">
+      <div className="price-range-container">
         <h4>Price Range</h4>
-        <form className="price-form" onSubmit={formHandler}>
-          <input
-            type="number"
-            placeholder="from"
-            value={fromPrice}
-            onChange={(event) => setFromPrice(event.target.value)}
-          />
-          <input
-            type="number"
-            placeholder="to"
-            value={toPrice}
-            onChange={(event) => setToPrice(event.target.value)}
-          />
-          <button type="submit">Submit</button>
-        </form>
+        <ReactSlider
+          className="horizontal-slider"
+          thumbClassName="example-thumb"
+          trackClassName="example-track"
+          defaultValue={[518, 1450]}
+          min={518}
+          max={1450}
+          ariaLabel={["Lower thumb", "Upper thumb"]}
+          ariaValuetext={(state) => `Thumb value ${state.valueNow}`}
+          renderThumb={(props, state) => <div {...props}>{state.valueNow}</div>}
+          pearling
+          minDistance={10}
+          onChange={(value) => {
+            setPriceRange(value);
+            const newList = productList.filter(
+              (item) => item.price >= value[0] && item.price <= value[1]
+            );
+            setProducts(newList);
+          }}
+        />
+        <span>
+          {priceRange[0]} - {priceRange[1]}
+        </span>
       </div>
     </aside>
   );

@@ -39,12 +39,12 @@ const ProductCard = ({ id, brand, model, price, imgUrl }) => {
         <span className="laptop-brand">Brand: {brand}</span>
         <span className="laptop-model">Model: {model}</span>
         <p className="laptop-price">{price}$</p>
-        <button className="add-cart" onClick={() => addCart(id)}>
-          Add to Cart
+        <button
+          className={`add-cart ${isAdded && "added"}`}
+          onClick={() => addCart(id)}
+        >
+          {!isAdded ? "Add to Cart" : "Added"}
         </button>
-        {isAdded && (
-          <p className="add-cart-success">Item added successfully!</p>
-        )}
       </div>
     </article>
   );
