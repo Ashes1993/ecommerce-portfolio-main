@@ -1,0 +1,31 @@
+.reviews-container {
+  background-size: cover;
+  background-position: center;
+  height: 60vh;
+  text-align: center;
+  display: flex;
+}
+
+.reviews {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  object-fit: cover;
+}
+
+.review {
+  width: 100%;
+  flex-shrink: 0;
+  /* padding: 2rem 15rem; */
+}
+
+.review-text {
+  font-size: 30px;
+  font-weight: 500;
+  padding: 0 5rem;
+}
+
+.review-author {
+}

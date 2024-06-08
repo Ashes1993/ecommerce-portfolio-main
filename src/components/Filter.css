@@ -1,47 +1,54 @@
-/* Filter */
-
 .filter-container {
-  grid-row: 1/3;
-  border-right: 1px solid rgb(185, 185, 185);
-  width: 100%;
-  margin-right: 10rem;
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 3rem;
+  gap: 1rem;
+  min-width: 15rem;
 }
 
-.filter-dropdown {
+.brands-container {
+  position: relative;
+}
+
+.brands-title {
   margin: auto;
-}
-
-.filter-dropdown:hover {
   cursor: pointer;
 }
 
-.brand-list {
+.brands-list {
   list-style: none;
-  cursor: pointer;
+  transform: translateY(0rem);
+  transition: display 1s ease-in-out;
 }
 
-.brand-list li {
+.brands-list li {
   padding: 0.3rem;
   background-color: white;
   border: none;
 }
-.brand-list li:hover {
+.brands-list li:hover {
   background-color: aliceblue;
 }
 
-.brand-list button {
+.brands-list button {
   font-size: 1rem;
   padding: 0.3rem;
   background-color: aliceblue;
   border: none;
+  cursor: pointer;
 }
 
 /* Price Range Slider */
+.price-range-container {
+  display: flex;
+  flex-direction: column;
+}
 
 .horizontal-slider {
-  width: 100%;
+  width: 80%;
   max-width: 500px;
   height: 50px;
+  margin: auto;
 }
 
 .horizontal-slider .example-track {
@@ -54,7 +61,7 @@
 }
 
 .example-track.example-track-1 {
-  background-color: green;
+  background-color: rgb(38, 153, 38);
 }
 
 .example-track.example-track-2 {
@@ -62,15 +69,21 @@
 }
 
 .horizontal-slider .example-thumb {
-  top: 20%;
-  width: 30px;
-  height: 30px;
-  line-height: 25px;
-  font-size: 0.9em;
+  top: 24%;
+  width: 25px;
+  height: 25px;
+  line-height: 10px;
   text-align: center;
   background-color: white;
   cursor: pointer;
-  border: 2px solid gray;
+  border: 1px solid rgb(38, 153, 38);
   box-sizing: border-box;
   border-radius: 50%;
+}
+
+.price-range {
+  margin: auto;
+  background-color: rgb(201, 201, 201);
+  padding: 1rem;
+  border-radius: 1rem;
 }

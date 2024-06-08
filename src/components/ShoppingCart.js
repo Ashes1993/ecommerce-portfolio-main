@@ -32,7 +32,8 @@ const ShoppingCart = () => {
     shoppingCart.forEach((item) => {
       total += item.amount * item.price;
     });
-    setTotalPrice(total);
+    const fixedTotal = total.toFixed(2);
+    setTotalPrice(fixedTotal);
   }, [shoppingCart]);
 
   return (

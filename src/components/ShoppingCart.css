@@ -141,6 +141,7 @@
   border: none;
   padding: 0.3rem;
   border-radius: 6px;
+  cursor: pointer;
 }
 
 .delete-icon {

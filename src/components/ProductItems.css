@@ -2,8 +2,8 @@
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
-  margin-top: 2rem;
-  padding: 2rem;
+
+  /* padding: 2rem; */
   /* width: 90%;
   min-width: 85%; */
   text-align: center;

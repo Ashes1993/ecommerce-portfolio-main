@@ -8,6 +8,7 @@ import Banner from "./Banner";
 import About from "./About";
 import Carousel from "./Carousel";
 import Footer from "./Footer";
+import Reviews from "./Reviews";
 
 const Home = () => {
   return (
@@ -19,9 +20,12 @@ const Home = () => {
       <Banner />
       <div className="products-container">
         <Filter />
-        <Search />
-        <ProductItems />
+        <div className="products-and-search">
+          <Search />
+          <ProductItems />
+        </div>
       </div>
+      <Reviews />
       <Footer />
     </div>
   );

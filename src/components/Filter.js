@@ -5,60 +5,64 @@ import { AiOutlineArrowDown } from "react-icons/ai";
 import "./Filter.css";
 import ReactSlider from "react-slider";
 
-export const Filter = () => {
-  const { setProducts } = useGlobalContext();
-  const [priceRange, setPriceRange] = useState([]);
-  const [isBrandOpen, setIsBrandOpen] = useState(false);
+const BRANDS_LIST = ["Acer", "Asus", "HP", "Jumper", "Lenovo"];
 
-  const filterBrand = (selectedBrand) => {
-    const newList = productList.filter(
-      (product) => product.brand === selectedBrand
-    );
+export const Filter = () => {
+  const { products, setProducts } = useGlobalContext();
+  const [priceRange, setPriceRange] = useState([]);
+  const [selectedBrands, setSelectedBrands] = useState({
+    Acer: false,
+    Asus: false,
+    HP: false,
+    Jumper: false,
+    Lenovo: false,
+  });
+
+  const handleBrandChange = (e) => {
+    const brandName = e.target.name;
+    const newSelectedBrands = {
+      ...selectedBrands,
+      [brandName]: !selectedBrands[brandName],
+    };
+    setSelectedBrands(newSelectedBrands);
+    const selectedBrandNames = Object.entries(newSelectedBrands)
+      .filter(([key, value]) => value === true)
+      .map(([key]) => key);
+    filterBrand(selectedBrandNames);
+  };
+
+  const filterBrand = (brands) => {
+    const newList = productList.filter((product) => {
+      return brands.includes(product.brand);
+    });
     setProducts(newList);
   };
 
-  // const priceFilterHandler = (from, to) => {
-  //   const newList = products.filter(
-  //     (item) => item.price >= from && item.price <= to
-  //   );
-  //   setProducts(newList);
-  // };
-
-  // const formHandler = (event) => {
-  //   event.preventDefault();
-  //   priceFilter(fromPrice, toPrice);
-  // };
-
   return (
     <aside className="filter-container">
-      <h3>Filters</h3>
-      <div>
-        <h4
-          onClick={() => setIsBrandOpen(!isBrandOpen)}
-          className="filter-dropdown"
-        >
+      <h1>Filters</h1>
+      <div className="brands-container">
+        <h4 className="brands-title">
           Brands
           <AiOutlineArrowDown className="arrow-down-icon" />
         </h4>
-        {isBrandOpen && (
-          <ul className="brand-list">
-            <li>
-              <button onClick={() => filterBrand("Acer")}>Acer</button>
-            </li>
-            <li>
-              <button onClick={() => filterBrand("Asus")}>Asus</button>
-            </li>
-            <li>
-              <button onClick={() => filterBrand("HP")}>HP</button>
-            </li>
-            <li>
-              <button onClick={() => filterBrand("Jumper")}>Jumper</button>
-            </li>
-            <li>
-              <button onClick={() => filterBrand("Lenovo")}>Lenovo</button>
-            </li>
-          </ul>
-        )}
+        <ul className="brands-list">
+          {BRANDS_LIST.map((brand, index) => {
+            return (
+              <li key={index}>
+                <label>
+                  <input
+                    type="checkbox"
+                    name={brand}
+                    checked={selectedBrands[brand]}
+                    onChange={handleBrandChange}
+                  />
+                  {brand}
+                </label>
+              </li>
+            );
+          })}
+        </ul>
       </div>
       <div className="price-range-container">
         <h4>Price Range</h4>
@@ -71,19 +75,18 @@ export const Filter = () => {
           max={1450}
           ariaLabel={["Lower thumb", "Upper thumb"]}
           ariaValuetext={(state) => `Thumb value ${state.valueNow}`}
-          renderThumb={(props, state) => <div {...props}>{state.valueNow}</div>}
           pearling
           minDistance={10}
           onChange={(value) => {
             setPriceRange(value);
-            const newList = productList.filter(
+            const newList = products.filter(
               (item) => item.price >= value[0] && item.price <= value[1]
             );
             setProducts(newList);
           }}
         />
-        <span>
-          {priceRange[0]} - {priceRange[1]}
+        <span className="price-range">
+          ${priceRange[0]} - ${priceRange[1]}
         </span>
       </div>
     </aside>

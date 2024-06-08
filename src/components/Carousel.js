@@ -63,7 +63,7 @@ const Carousel = () => {
     const x = dragX.get();
     if (x <= -THRESHOLD) {
       handleSlideChange(currentIndex + 1);
-    } else if (x >= -THRESHOLD) {
+    } else if (x >= THRESHOLD) {
       handleSlideChange(currentIndex - 1);
     }
   };
