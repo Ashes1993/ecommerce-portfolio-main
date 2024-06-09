@@ -49,10 +49,12 @@ const Reviews = () => {
     }
   }, [currentIndex]);
   return (
-    <div
-      style={{ backgroundImage: `url(${reviewBackground})` }}
-      className="reviews-container"
-    >
+    <div className="reviews-container">
+      <img
+        src={reviewBackground}
+        alt="review-background"
+        className="review-background"
+      />
       <motion.div
         drag="x"
         dragConstraints={{ left: 0, right: 0 }}

@@ -1,31 +1,39 @@
 .reviews-container {
-  background-size: cover;
-  background-position: center;
-  height: 60vh;
+  margin: 5rem 0;
   text-align: center;
   display: flex;
+  border-radius: 2rem;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+.review-background {
+  width: 100%;
+  filter: brightness(60%) blur(1px);
 }
 
 .reviews {
   width: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
   text-align: center;
-  object-fit: cover;
+  position: absolute;
 }
 
 .review {
   width: 100%;
   flex-shrink: 0;
-  /* padding: 2rem 15rem; */
+  color: white;
 }
 
 .review-text {
   font-size: 30px;
-  font-weight: 500;
-  padding: 0 5rem;
+  font-weight: 700;
+  width: 50%;
+  margin: auto;
 }
 
 .review-author {
+  font-size: 40px;
 }
