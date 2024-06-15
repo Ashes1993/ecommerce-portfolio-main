@@ -11,6 +11,7 @@
 .review-background {
   width: 100%;
   filter: brightness(60%) blur(1px);
+  border-radius: 2rem;
 }
 
 .reviews {
@@ -25,6 +26,7 @@
   width: 100%;
   flex-shrink: 0;
   color: white;
+  cursor: pointer;
 }
 
 .review-text {
@@ -36,4 +38,41 @@
 
 .review-author {
   font-size: 40px;
+}
+
+.reviews-dots-container {
+  display: flex;
+  gap: 0.5rem;
+  position: absolute;
+  bottom: 10%;
+}
+
+.review-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: gray;
+}
+
+.current-dot {
+  background-color: white;
+}
+
+@media screen and (max-width: 960px) {
+  .review-text {
+    font-size: 20px;
+    width: 50%;
+  }
+  .review-author {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .review-text {
+    font-size: 15px;
+    width: 50%;
+  }
+  .review-author {
+    font-size: 20px;
+  }
 }

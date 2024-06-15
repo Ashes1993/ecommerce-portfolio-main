@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useGlobalContext } from "../context";
 import { productList } from "../data";
-import { AiOutlineArrowDown } from "react-icons/ai";
+import { IoIosArrowDropdownCircle } from "react-icons/io";
 import "./Filter.css";
 import ReactSlider from "react-slider";
 
@@ -9,7 +9,7 @@ const BRANDS_LIST = ["Acer", "Asus", "HP", "Jumper", "Lenovo"];
 
 export const Filter = () => {
   const { products, setProducts } = useGlobalContext();
-  const [priceRange, setPriceRange] = useState([]);
+  const [priceRange, setPriceRange] = useState([518, 1450]);
   const [selectedBrands, setSelectedBrands] = useState({
     Acer: false,
     Asus: false,
@@ -17,6 +17,7 @@ export const Filter = () => {
     Jumper: false,
     Lenovo: false,
   });
+  const [isBrandShow, setIsBrandShow] = useState(false);
 
   const handleBrandChange = (e) => {
     const brandName = e.target.name;
@@ -32,21 +33,28 @@ export const Filter = () => {
   };
 
   const filterBrand = (brands) => {
-    const newList = productList.filter((product) => {
-      return brands.includes(product.brand);
-    });
-    setProducts(newList);
+    if (brands.length === 0) {
+      setProducts(productList);
+    } else {
+      const newList = productList.filter((product) => {
+        return brands.includes(product.brand);
+      });
+      setProducts(newList);
+    }
   };
 
   return (
     <aside className="filter-container">
       <h1>Filters</h1>
       <div className="brands-container">
-        <h4 className="brands-title">
+        <h4
+          onClick={() => setIsBrandShow(!isBrandShow)}
+          className="brands-title"
+        >
           Brands
-          <AiOutlineArrowDown className="arrow-down-icon" />
+          <IoIosArrowDropdownCircle className="arrow-down-icon" />
         </h4>
-        <ul className="brands-list">
+        <ul className={`brands-list ${isBrandShow && "show"}`}>
           {BRANDS_LIST.map((brand, index) => {
             return (
               <li key={index}>

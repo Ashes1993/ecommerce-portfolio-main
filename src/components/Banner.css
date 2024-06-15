@@ -45,4 +45,8 @@
   .laptop-banner {
     min-height: 250px;
   }
+  .banner-text-container {
+    left: 5%;
+    top: 5%;
+  }
 }

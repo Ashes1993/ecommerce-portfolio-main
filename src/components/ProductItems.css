@@ -2,10 +2,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
-
-  /* padding: 2rem; */
-  /* width: 90%;
-  min-width: 85%; */
   text-align: center;
 }
 
@@ -15,7 +11,7 @@
   border: 1px solid rgba(170, 170, 170, 0.562);
   border-radius: 6px;
   width: 30%;
-  min-width: 250px;
+  /* min-width: 250px; */
   max-width: 350px;
   position: relative;
 }
@@ -72,4 +68,14 @@
   width: 100%;
   margin: 0;
   padding: 3rem;
+}
+
+@media screen and (max-width: 650px) {
+  .products-items {
+    justify-content: center;
+  }
+
+  .laptop-item {
+    /* width: 30px; */
+  }
 }

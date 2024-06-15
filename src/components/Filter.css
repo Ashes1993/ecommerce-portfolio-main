@@ -13,12 +13,29 @@
 .brands-title {
   margin: auto;
   cursor: pointer;
+  background-color: rgb(201, 201, 201);
+  border-radius: 1rem;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
 }
 
 .brands-list {
   list-style: none;
-  transform: translateY(0rem);
-  transition: display 1s ease-in-out;
+  height: 0px;
+  overflow: hidden;
+  transition: height 0.5s ease-in-out;
+}
+
+.brands-list.show {
+  height: 150px;
+}
+
+.arrow-down-icon {
+  margin-left: 1rem;
+  color: white;
+  margin-left: auto;
+  font-size: 25px;
 }
 
 .brands-list li {
@@ -42,6 +59,12 @@
 .price-range-container {
   display: flex;
   flex-direction: column;
+}
+
+.price-range-container h4 {
+  background-color: rgb(201, 201, 201);
+  border-radius: 1rem;
+  padding: 0.6rem;
 }
 
 .horizontal-slider {

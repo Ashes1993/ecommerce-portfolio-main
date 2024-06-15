@@ -73,6 +73,23 @@ const Reviews = () => {
           );
         })}
       </motion.div>
+      <Dots currentIndex={currentIndex} setCurrentIndex={setCurrentIndex} />
+    </div>
+  );
+};
+
+const Dots = ({ currentIndex, setCurrentIndex }) => {
+  return (
+    <div className="reviews-dots-container">
+      {REVIEWS.map((review, index) => {
+        return (
+          <div
+            onClick={() => setCurrentIndex(index)}
+            key={index}
+            className={`review-dot ${currentIndex === index && "current-dot"}`}
+          ></div>
+        );
+      })}
     </div>
   );
 };
