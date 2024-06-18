@@ -11,7 +11,6 @@
   border: 1px solid rgba(170, 170, 170, 0.562);
   border-radius: 6px;
   width: 30%;
-  /* min-width: 250px; */
   max-width: 350px;
   position: relative;
 }
@@ -44,6 +43,10 @@
 
 .laptop-price {
   padding: 0.5rem;
+  color: gray;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 2rem;
 }
 
 .add-cart {
@@ -64,18 +67,20 @@
   background-color: rgb(221, 221, 221);
 }
 
-.no-product h3 {
-  width: 100%;
-  margin: 0;
+.no-product {
+  margin: auto;
   padding: 3rem;
+  background-color: rgb(214, 214, 214);
+  text-align: center;
+  border-radius: 1rem;
+}
+
+.no-product-logo {
+  font-size: 50px;
 }
 
 @media screen and (max-width: 650px) {
   .products-items {
     justify-content: center;
-  }
-
-  .laptop-item {
-    /* width: 30px; */
   }
 }

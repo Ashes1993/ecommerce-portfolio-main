@@ -93,4 +93,7 @@
     width: 100%;
     margin: auto;
   }
+  .input-container {
+    width: 70%;
+  }
 }

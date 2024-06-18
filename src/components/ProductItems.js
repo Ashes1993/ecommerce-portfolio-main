@@ -3,6 +3,7 @@ import { useGlobalContext } from "../context";
 import { productList } from "../data";
 import { Element } from "react-scroll";
 import "./ProductItems.css";
+import { PiSmileySadLight } from "react-icons/pi";
 
 const ProductCard = ({ id, brand, model, price, imgUrl }) => {
   const [isAdded, setIsAdded] = useState(false);
@@ -36,8 +37,8 @@ const ProductCard = ({ id, brand, model, price, imgUrl }) => {
     <article className="laptop-item" key={id}>
       <img className="laptop-photo" src={imgUrl} alt="laptop" />
       <div className="laptop-details">
-        <span className="laptop-brand">Brand: {brand}</span>
-        <span className="laptop-model">Model: {model}</span>
+        <span className="laptop-brand">{brand}</span>
+        <span className="laptop-model">{model}</span>
         <p className="laptop-price">{price}$</p>
         <button
           className={`add-cart ${isAdded && "added"}`}
@@ -55,6 +56,7 @@ export const ProductItems = () => {
   if (productError) {
     return (
       <div className="no-product">
+        <PiSmileySadLight className="no-product-logo" />
         <h3>The search returned no result!</h3>
       </div>
     );

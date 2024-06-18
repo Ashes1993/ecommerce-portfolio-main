@@ -4,7 +4,7 @@ body {
 }
 
 .page-container {
-  /* overflow-x: hidden; */
+  overflow-x: hidden;
   position: relative;
   width: 100%;
 }
@@ -19,6 +19,7 @@ body {
   flex-direction: column;
   padding: 2rem 2rem 2rem 0;
   gap: 2rem;
+  width: 100%;
 }
 
 @media screen and (max-width: 650px) {
