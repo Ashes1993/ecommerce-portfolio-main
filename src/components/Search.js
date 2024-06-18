@@ -4,14 +4,16 @@ import { productList } from "../data";
 import "./Search.css";
 
 export const Search = () => {
-  const { setProducts, setProductError } = useGlobalContext();
+  const { setProducts, setProductError, products } = useGlobalContext();
   const [inputValue, setInputValue] = useState("");
 
   useEffect(() => {
     if (inputValue) {
-      const newProducts = productList.filter((product) =>
-        product.brand.toLowerCase().includes(inputValue.toLowerCase())
-      );
+      const newProducts = productList.filter((product) => {
+        const brandMatch = product.brand.toLowerCase().includes(inputValue);
+        const modelMatch = product.model.toLowerCase().includes(inputValue);
+        return brandMatch || modelMatch;
+      });
       setProducts(newProducts);
       if (newProducts.length === 0 && inputValue !== "") {
         setProductError(true);
@@ -22,12 +24,12 @@ export const Search = () => {
       setProductError(false);
       setProducts(productList);
     }
-  }, [inputValue, setProducts, setProductError]);
+  }, [inputValue, setProducts, setProductError, products]);
 
   return (
     <div className="search-container">
       <input
-        placeholder="Search by Brand Name"
+        placeholder="Search by Brand or Model"
         className="search-input"
         type="text"
         value={inputValue}
