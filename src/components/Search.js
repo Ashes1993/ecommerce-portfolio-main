@@ -4,7 +4,7 @@ import { productList } from "../data";
 import "./Search.css";
 
 export const Search = () => {
-  const { setProducts, setProductError, products } = useGlobalContext();
+  const { setProducts, setProductError } = useGlobalContext();
   const [inputValue, setInputValue] = useState("");
 
   useEffect(() => {
@@ -24,7 +24,7 @@ export const Search = () => {
       setProductError(false);
       setProducts(productList);
     }
-  }, [inputValue, setProducts, setProductError, products]);
+  }, [inputValue, setProducts, setProductError]);
 
   return (
     <div className="search-container">

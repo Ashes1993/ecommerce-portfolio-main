@@ -1,3 +1,5 @@
+This React application serves as my online portfolio showcasing my skills and experience in web development. It features a clean and responsive design, highlighting my projects and qualifications.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

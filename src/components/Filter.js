@@ -19,6 +19,10 @@ export const Filter = () => {
   });
   const [isBrandShow, setIsBrandShow] = useState(false);
 
+  // const submitFilters = () => {
+  //   return;
+  // };
+
   const handleBrandChange = (e) => {
     const brandName = e.target.name;
     const newSelectedBrands = {
@@ -97,6 +101,7 @@ export const Filter = () => {
           ${priceRange[0]} - ${priceRange[1]}
         </span>
       </div>
+      {/* <button onClick={submitFilters}>Submit</button> */}
     </aside>
   );
 };
