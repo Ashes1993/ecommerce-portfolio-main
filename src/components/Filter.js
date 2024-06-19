@@ -19,9 +19,23 @@ export const Filter = () => {
   });
   const [isBrandShow, setIsBrandShow] = useState(false);
 
-  // const submitFilters = () => {
-  //   return;
-  // };
+  const submitFilters = () => {
+    const selectedBrandNames = Object.entries(selectedBrands)
+      .filter(([key, value]) => value === true)
+      .map(([key]) => key);
+    filterBrand(selectedBrandNames);
+  };
+
+  const clearFilters = () => {
+    setProducts(productList);
+    setSelectedBrands({
+      Acer: false,
+      Asus: false,
+      HP: false,
+      Jumper: false,
+      Lenovo: false,
+    });
+  };
 
   const handleBrandChange = (e) => {
     const brandName = e.target.name;
@@ -30,10 +44,6 @@ export const Filter = () => {
       [brandName]: !selectedBrands[brandName],
     };
     setSelectedBrands(newSelectedBrands);
-    const selectedBrandNames = Object.entries(newSelectedBrands)
-      .filter(([key, value]) => value === true)
-      .map(([key]) => key);
-    filterBrand(selectedBrandNames);
   };
 
   const filterBrand = (brands) => {
@@ -101,7 +111,14 @@ export const Filter = () => {
           ${priceRange[0]} - ${priceRange[1]}
         </span>
       </div>
-      {/* <button onClick={submitFilters}>Submit</button> */}
+      <div className="filter-btns">
+        <button className="apply-btn" onClick={submitFilters}>
+          Apply Filters
+        </button>
+        <button onClick={clearFilters} className="clear-btn">
+          Clear Filters
+        </button>
+      </div>
     </aside>
   );
 };

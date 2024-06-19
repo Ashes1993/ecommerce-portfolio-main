@@ -10,8 +10,12 @@ export const Search = () => {
   useEffect(() => {
     if (inputValue) {
       const newProducts = productList.filter((product) => {
-        const brandMatch = product.brand.toLowerCase().includes(inputValue);
-        const modelMatch = product.model.toLowerCase().includes(inputValue);
+        const brandMatch = product.brand
+          .toLowerCase()
+          .includes(inputValue.toLowerCase());
+        const modelMatch = product.model
+          .toLowerCase()
+          .includes(inputValue.toLowerCase());
         return brandMatch || modelMatch;
       });
       setProducts(newProducts);
@@ -27,14 +31,12 @@ export const Search = () => {
   }, [inputValue, setProducts, setProductError]);
 
   return (
-    <div className="search-container">
-      <input
-        placeholder="Search by Brand or Model"
-        className="search-input"
-        type="text"
-        value={inputValue}
-        onChange={(event) => setInputValue(event.target.value)}
-      />
-    </div>
+    <input
+      placeholder="Search by Brand or Model"
+      className="search-input"
+      type="text"
+      value={inputValue}
+      onChange={(event) => setInputValue(event.target.value)}
+    />
   );
 };

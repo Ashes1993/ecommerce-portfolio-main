@@ -29,7 +29,7 @@ const Footer = () => {
         <h1>Stay in the loop with our weekly newsletter</h1>
         <div className="input-container">
           <input type="email" placeholder="Enter your email!" />
-          <button>
+          <button className="arrow-container">
             <FaArrowRight className="arrow-class" />
           </button>
         </div>

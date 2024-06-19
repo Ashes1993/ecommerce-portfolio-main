@@ -48,6 +48,7 @@
   width: 55%;
   margin: 3rem auto;
   display: flex;
+  position: relative;
 }
 
 .input-container input {
@@ -58,14 +59,23 @@
   font-size: 16px;
   background-color: rgb(61, 61, 61);
 }
-.input-container button {
+.arrow-container {
   background-color: white;
   border: none;
-  margin: 0.4rem;
-  transform: translateX(-140%);
   border-radius: 50%;
   width: 40px;
   height: 40px;
+  display: flex;
+  position: absolute;
+  top: 4%;
+  right: 2%;
+  margin: auto;
+  transition: background-color 0.5s ease-in, color 1s ease-in;
+}
+
+.arrow-container:hover {
+  background-color: black;
+  color: white;
 }
 
 .arrow-class {

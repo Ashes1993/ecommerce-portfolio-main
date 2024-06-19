@@ -4,7 +4,7 @@ body {
 }
 
 .page-container {
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   position: relative;
   width: 100%;
 }
