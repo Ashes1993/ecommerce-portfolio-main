@@ -6,6 +6,7 @@ import "./Filter.css";
 import ReactSlider from "react-slider";
 
 const BRANDS_LIST = ["Acer", "Asus", "HP", "Jumper", "Lenovo"];
+const DEFAULT_PRICE_RANGE = [518, 1450];
 
 export const Filter = () => {
   const { products, setProducts } = useGlobalContext();
@@ -23,7 +24,17 @@ export const Filter = () => {
     const selectedBrandNames = Object.entries(selectedBrands)
       .filter(([key, value]) => value === true)
       .map(([key]) => key);
-    filterBrand(selectedBrandNames);
+
+    const filteredProducts = products.filter((product) => {
+      const brandMatch =
+        selectedBrandNames.length === 0 ||
+        selectedBrandNames.includes(product.brand);
+      const priceMatch =
+        product.price >= priceRange[0] && product.price <= priceRange[1];
+      return brandMatch && priceMatch;
+    });
+
+    setProducts(filteredProducts);
   };
 
   const clearFilters = () => {
@@ -35,6 +46,7 @@ export const Filter = () => {
       Jumper: false,
       Lenovo: false,
     });
+    setPriceRange(DEFAULT_PRICE_RANGE);
   };
 
   const handleBrandChange = (e) => {
@@ -44,17 +56,6 @@ export const Filter = () => {
       [brandName]: !selectedBrands[brandName],
     };
     setSelectedBrands(newSelectedBrands);
-  };
-
-  const filterBrand = (brands) => {
-    if (brands.length === 0) {
-      setProducts(productList);
-    } else {
-      const newList = productList.filter((product) => {
-        return brands.includes(product.brand);
-      });
-      setProducts(newList);
-    }
   };
 
   return (
@@ -93,6 +94,7 @@ export const Filter = () => {
           thumbClassName="example-thumb"
           trackClassName="example-track"
           defaultValue={[518, 1450]}
+          value={priceRange}
           min={518}
           max={1450}
           ariaLabel={["Lower thumb", "Upper thumb"]}
@@ -101,10 +103,6 @@ export const Filter = () => {
           minDistance={10}
           onChange={(value) => {
             setPriceRange(value);
-            const newList = products.filter(
-              (item) => item.price >= value[0] && item.price <= value[1]
-            );
-            setProducts(newList);
           }}
         />
         <span className="price-range">
