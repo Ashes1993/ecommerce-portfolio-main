@@ -7,7 +7,6 @@
   top: 0;
   width: 30%;
   height: 98vh;
-  /* background-color: #f5f7fa; */
   background-color: white;
   border-top-left-radius: 2rem;
   border-bottom-left-radius: 2rem;
@@ -61,6 +60,7 @@
   to {
     background-color: black;
     color: white;
+    transform: rotate(180deg);
   }
 }
 
@@ -132,7 +132,6 @@
   border-radius: 0.5rem;
   background-color: rgb(219, 219, 219);
   font-size: 16px;
-  padding-left: 0.5rem;
 }
 
 .remove-btn {
@@ -144,16 +143,11 @@
   cursor: pointer;
 }
 
-.delete-icon {
-  float: left;
-}
-
 .checkout-container {
   background-color: #ccd1d9;
   display: flex;
   flex-direction: column;
   margin-top: auto;
-  /* margin-bottom: 1rem; */
   width: 100%;
   border-top: 1px solid gray;
   border-bottom-left-radius: 2rem;
@@ -193,6 +187,7 @@
   margin-bottom: 1rem;
   font-size: 20px;
   padding: 1rem;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 1200px) and (min-width: 751px) {

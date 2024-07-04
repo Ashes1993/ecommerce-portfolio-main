@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Footer.css";
 import { FaLaptop } from "react-icons/fa6";
 import { FaFacebook } from "react-icons/fa6";
@@ -6,8 +6,11 @@ import { FaTwitter } from "react-icons/fa6";
 import { FaSquareInstagram } from "react-icons/fa6";
 import { FaYoutube } from "react-icons/fa6";
 import { FaArrowRight } from "react-icons/fa6";
+import SuccessMessage from "./SuccessMessage";
 
 const Footer = () => {
+  const [isSuccessMessage, setIsSuccessMessage] = useState(false);
+
   return (
     <footer className="footer-container">
       <div className="about-site">
@@ -29,7 +32,10 @@ const Footer = () => {
         <h1>Stay in the loop with our weekly newsletter</h1>
         <div className="input-container">
           <input type="email" placeholder="Enter your email!" />
-          <button className="arrow-container">
+          <button
+            className="arrow-container"
+            onClick={() => setIsSuccessMessage(true)}
+          >
             <FaArrowRight className="arrow-class" />
           </button>
         </div>
@@ -40,6 +46,12 @@ const Footer = () => {
           <FaYoutube />
         </div>
       </div>
+      {isSuccessMessage && (
+        <SuccessMessage
+          message="Your Email address has been submited!"
+          setIsSuccessMessage={setIsSuccessMessage}
+        />
+      )}
     </footer>
   );
 };
